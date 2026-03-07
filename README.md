@@ -29,6 +29,7 @@
 #define dma_tc_clear(v)   LL_DMA_ClearFlag_TC1(v)
 #define dma_te_active(v)  LL_DMA_IsActiveFlag_TE1(v)
 #define dma_te_clear(v)   LL_DMA_ClearFlag_TE1(v)
+#define dma_gi_clear(v)   LL_DMA_ClearFlag_GI1(v)
 
 
 void lcd_spi_wait()
@@ -60,6 +61,7 @@ void lcd_spi_transmit(uint8_t *tx, size_t size)
 
   // Останавливаем передачу
   LL_DMA_DisableChannel(LCD_DMA, LCD_DMA_CHANNEL);
+  dma_gi_clear(LCD_DMA);
 
   // Настраиваем буфер передачи
   LL_DMA_SetPeriphAddress(LCD_DMA, LCD_DMA_CHANNEL, (uint32_t) &LCD_SPI->DR);
