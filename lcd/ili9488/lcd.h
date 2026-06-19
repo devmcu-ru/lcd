@@ -132,3 +132,7 @@ typedef struct {
 
 
 void ili9488_init(LcdILI9488 *lcd);
+void ili9488_begin(LcdILI9488 *lcd);
+void ili9488_commit(LcdILI9488 *lcd);
+void ili9488_write_command(LcdILI9488 *ili9488, uint8_t data);
+void ili9488_write_data(LcdILI9488 *ili9488, uint8_t data);
