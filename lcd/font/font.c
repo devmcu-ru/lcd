@@ -42,3 +42,20 @@ size_t font_text_width(const LCDFont* font, const unsigned char* text)
   // Возвращем ширину текста
   return width ? width - spacing : 0;
 }
+
+
+uint8_t font_char_width(const LCDFont* font, const unsigned char ch)
+{
+  // Проверяем шрифт
+  if (!font) return 0;
+  const LCDFontHeader *header = &font->header;
+
+  // Проверяем символ
+  const uint16_t first = header->first;
+  if (ch < first || ch > header->last) return 0;
+
+  // Определяем ширину символа
+  const uint8_t idx = ch - first;
+  const LCDFontLookup *lookup = (const LCDFontLookup *) (const void *) font->data;
+  return lookup[idx].width + lookup[idx].left;
+}

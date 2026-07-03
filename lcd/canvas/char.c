@@ -1,7 +1,7 @@
 #include "../canvas.h"
 
 
-size_t canvas_char(Canvas* canvas, int x, int y, const char c)
+size_t canvas_char(Canvas* canvas, int x, int y, const unsigned char c)
 {
   // Проверяем шрифт
   const LCDFont *font = canvas->font;
