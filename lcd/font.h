@@ -25,4 +25,5 @@ typedef struct {
 } LCDFont;
 
 
-size_t font_text_width(const LCDFont* font, const char* text);
+size_t font_text_width(const LCDFont* font, const unsigned char* text);
+uint8_t font_char_width(const LCDFont* font, const unsigned char ch);
