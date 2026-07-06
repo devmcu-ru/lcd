@@ -3,10 +3,10 @@
 
 #if LCD_PIXEL_FORMAT == LCD_PIXEL_RGB111
   #define CHUNK_SIZE          ((ILI9488_BUFFER_SIZE) * 2U)
-  #define CHUNK_STEP          2
+  #define CHUNK_STEP          2U
 #elif LCD_PIXEL_FORMAT == LCD_PIXEL_RGB666
   #define CHUNK_SIZE          ((ILI9488_BUFFER_SIZE) / 3U)
-  #define CHUNK_STEP          1
+  #define CHUNK_STEP          1U
 #endif
 
 #define LCD_MADCTL_LANDSCAPE  0b00101000

@@ -5,11 +5,11 @@
 
 #if LCD_PIXEL_FORMAT == LCD_PIXEL_RGB565
   #define CHUNK_SIZE          ((ST7735_BUFFER_SIZE) / 2U)
-  #define CHUNK_STEP          1
+  #define CHUNK_STEP          1U
   #define BYTES_PER_PIXEL     2U
 #elif LCD_PIXEL_FORMAT == LCD_PIXEL_RGB666
   #define CHUNK_SIZE          ((ST7735_BUFFER_SIZE) / 3U)
-  #define CHUNK_STEP          1
+  #define CHUNK_STEP          1U
   #define BYTES_PER_PIXEL     3U
 #else
   #error ST7735 unknown pixel format
@@ -17,7 +17,6 @@
 
 #define CHUNK_PIXELS          (ST7735_BUFFER_SIZE / BYTES_PER_PIXEL)
 #define CHUNK_BYTES           (CHUNK_PIXELS * BYTES_PER_PIXEL)
-#define CHUNK_STEP            1U
 
 #define LCD_MADCTL_LANDSCAPE  0b01100000
 #define LCD_MADCTL_PORTRAIT   0b00000000
