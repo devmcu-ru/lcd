@@ -1,7 +1,7 @@
 #include "../canvas.h"
 
 
-size_t canvas_char(Canvas* canvas, int x, int y, const unsigned char c)
+size_t canvas_char(Canvas* canvas, int x, int y, char ch)
 {
   // Проверяем шрифт
   const LCDFont *font = canvas->font;
@@ -11,11 +11,11 @@ size_t canvas_char(Canvas* canvas, int x, int y, const unsigned char c)
   const LCDFontHeader *header = &font->header;
   const uint16_t first = header->first;
   const uint16_t last = header->last;
-  const uint8_t ch = (uint8_t) c;
-  if (ch < first || ch > last) return 0;
+  const uint8_t c = (uint8_t) ch;
+  if (c < first || c > last) return 0;
 
   // Данные символа
-  const size_t index = ch - first;
+  const size_t index = c - first;
   const LCDFontLookup *lookup = ((const LCDFontLookup *) (const void *) font->data) + index;
   const uint16_t offset = lookup->offset;
   const uint8_t *data = ((const uint8_t *) (const void *) font) + offset;

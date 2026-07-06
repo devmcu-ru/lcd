@@ -1,7 +1,7 @@
 #include "../canvas.h"
 
 
-void canvas_text(Canvas* canvas, int x, int y, const unsigned char* text)
+void canvas_text(Canvas* canvas, int x, int y, char* text)
 {
   // Проверяем текст
   if (!text) return;
@@ -20,7 +20,7 @@ void canvas_text(Canvas* canvas, int x, int y, const unsigned char* text)
   while (*text) {
 
     // Считываем символ
-    const char c = *(text ++);
+    const uint8_t c = (uint8_t) *(text ++);
 
     // Новая строка
     if (c == '\n') {

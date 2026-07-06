@@ -1,7 +1,7 @@
 #include "../font.h"
 
 
-size_t font_text_width(const LCDFont* font, const unsigned char* text)
+size_t font_text_width(const LCDFont* font, char* text)
 {
   // Проверяем текст
   if (!text) return 0;
@@ -44,18 +44,19 @@ size_t font_text_width(const LCDFont* font, const unsigned char* text)
 }
 
 
-uint8_t font_char_width(const LCDFont* font, const unsigned char ch)
+uint8_t font_char_width(const LCDFont* font, char ch)
 {
   // Проверяем шрифт
   if (!font) return 0;
   const LCDFontHeader *header = &font->header;
 
   // Проверяем символ
+  const uint8_t c =  (uint8_t) ch;
   const uint16_t first = header->first;
-  if (ch < first || ch > header->last) return 0;
+  if (c < first || c > header->last) return 0;
 
   // Определяем ширину символа
-  const uint8_t idx = ch - first;
+  const uint8_t idx = c - first;
   const LCDFontLookup *lookup = (const LCDFontLookup *) (const void *) font->data;
   return lookup[idx].width + lookup[idx].left;
 }

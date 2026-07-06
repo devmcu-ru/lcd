@@ -50,5 +50,5 @@ void    canvas_fill_circle(Canvas* canvas, int xc, int yx, int r);
 void    canvas_circle(Canvas* canvas, int xc, int yx, int r);
 void    canvas_arc(Canvas* canvas, int x1, int y1, int x2, int y2, int r);
 void    canvas_cross(Canvas *canvas, int x, int y, uint8_t size);
-size_t  canvas_char(Canvas *canvas, int x, int y, const unsigned char c);
-void    canvas_text(Canvas *canvas, int x, int y, const unsigned char *text);
+size_t  canvas_char(Canvas *canvas, int x, int y, char ch);
+void    canvas_text(Canvas *canvas, int x, int y, char *text);
