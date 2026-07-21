@@ -1,7 +1,7 @@
 #include "../canvas.h"
 
 
-void canvas_text(Canvas* canvas, int x, int y, char* text)
+void canvas_text(Canvas* canvas, int x, int y, const char* text)
 {
   // Проверяем текст
   if (!text) return;
